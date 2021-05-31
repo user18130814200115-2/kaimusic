@@ -7,24 +7,23 @@
 
     <title>K-Music</title>
 
-    <link rel="stylesheet" href="/assets/css/normalize.css">
-    <link rel="stylesheet" href="/assets/css/kaiui.css">
-    <link rel="stylesheet" href="/assets/css/modalise.min.css">
-    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/kaiui.css">
+    <link rel="stylesheet" href="assets/css/modalise.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
 
     <!-- Inline scripts are forbidden in Firefox OS apps (CSP restrictions),
          so we use a script file. -->
-    <script src="/assets/js/aurora/aurora.js" defer></script>
-    <script src="/assets/js/aurora/alac.js" defer></script>
-    <script src="/assets/js/aurora/flac.js" defer></script>
-    <script src="/assets/js/polyfill.min.js" defer></script>
-    <script src="/assets/js/localforage.min.js" defer></script>
-    <script src="/assets/js/StereoBalanceNode.js" defer></script>
-    <script src="/assets/js/app.js" defer></script>
-    <script src="/assets/js/modalise.min.js" defer></script>
-    <script src="/assets/js/ads-sdk.v4.min.js" defer></script>
-    <script src="/assets/js/parser/metadata_scripts.js" defer></script>
-    <script src="/assets/js/cutter.js" defer></script>
+    <script src="assets/js/aurora/aurora.js" defer></script>
+    <script src="assets/js/aurora/alac.js" defer></script>
+    <script src="assets/js/aurora/flac.js" defer></script>
+    <script src="assets/js/polyfill.min.js" defer></script>
+    <script src="assets/js/localforage.min.js" defer></script>
+    <script src="assets/js/StereoBalanceNode.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
+    <script src="assets/js/modalise.min.js" defer></script>
+    <script src="assets/js/parser/metadata_scripts.js" defer></script>
+    <script src="assets/js/cutter.js" defer></script>
 
   </head>
 
@@ -47,32 +46,32 @@
       <div style="margin:5px 23px 0px 23px;align-items:flex-end;">
         <div class="row" style="margin:0px 0px 5px 0px;justify-content:flex-start;">
           <div style="width:40%;height:78px;background:#ccc;display:flex;flex-direction:column;justify-content:center;align-items: center;">
-            <img id="album_cover" height="100%" width="100%" style="object-fit:cover;" src="/assets/img/baseline_album_white_48.png" />
+            <img id="album_cover" height="100%" width="100%" style="object-fit:cover;" src="assets/img/baseline_album_white_48.png" />
           </div>
           <div style="width:60%;height:78px;padding:0px 0px 0px 5px;justify-content:flex-end;overflow:hidden;">
             <div class="row" style="margin:0 0 2px 0;justify-content:flex-start;">
-              <img width="15xp" height="15xp" src="/assets/img/baseline_playlist_play_white_36dp.png"/>
+              <img width="15xp" height="15xp" src="assets/img/baseline_playlist_play_white_36dp.png"/>
               <div id="playlist_label" style="margin-left:5px;text-align:left;height:18px;width:90%;overflow:hidden;text-overflow:ellipsis;">Playlist</div>
             </div>
             <div class="row" style="margin:0 0 2px 0;justify-content:flex-start;">
-              <img width="15xp" height="15xp" src="/assets/img/baseline_person_white_36dp.png"/>
+              <img width="15xp" height="15xp" src="assets/img/baseline_person_white_36dp.png"/>
               <div id="artis_label" style="margin-left:5px;text-align:left;height:18px;width:90%;overflow:hidden;text-overflow:ellipsis;">Artist</div>
             </div>
             <div class="row" style="margin:0 0 2px 0;justify-content:flex-start;">
-              <img width="15xp" height="15xp" src="/assets/img/baseline_album_white_36dp.png"/>
+              <img width="15xp" height="15xp" src="assets/img/baseline_album_white_36dp.png"/>
               <div id="album_label" style="margin-left:5px;text-align:left;height:18px;width:90%;overflow:hidden;text-overflow:ellipsis;">Album</div>
             </div>
             <div class="row" style="justify-content:flex-start;">
-              <img width="15xp" height="15xp" src="/assets/img/baseline_music_note_white_36dp.png"/>
+              <img width="15xp" height="15xp" src="assets/img/baseline_music_note_white_36dp.png"/>
               <div id="genre_label" style="margin-left:5px;text-align:left;height:18px;width:90%;overflow:hidden;text-overflow:ellipsis;">Genre</div>
             </div>
           </div>
         </div>
         <div class="row" style="margin:9px 0px 0px 0px;align-items:flex-end;">
-          <img id="repeat_btn" class="inactive" style="padding-right:5px;" width="16px" height="16px" src="/assets/img/baseline_repeat_white_18dp.png"/>
-          <img id="shuffle_btn" class="inactive" style="padding-right:5px;" width="16px" height="16px" src="/assets/img/baseline_shuffle_white_18dp.png"/>
+          <img id="repeat_btn" class="inactive" style="padding-right:5px;" width="16px" height="16px" src="assets/img/baseline_repeat_white_18dp.png"/>
+          <img id="shuffle_btn" class="inactive" style="padding-right:5px;" width="16px" height="16px" src="assets/img/baseline_shuffle_white_18dp.png"/>
           <div id="volume_status" class="row" style="padding-right:5px;justify-content:flex-start;">
-            <img id="volume_btn" width="16px" height="16px" src="/assets/img/baseline_volume_up_white_18dp.png"/>
+            <img id="volume_btn" width="16px" height="16px" src="assets/img/baseline_volume_up_white_18dp.png"/>
             <div style="width:38px;text-align:right;"><span id="volume_level"></span>%</div>
           </div>
           <div style="width:60px;text-align:right;">
@@ -92,15 +91,15 @@
 
       <div id="virtual-dpad">
         <div class="row" style="justify-content:center;">
-          <img style="margin:5px;" width="20xp" height="20xp" src="/assets/img/baseline_add_white_18dp.png"/>
+          <img style="margin:5px;" width="20xp" height="20xp" src="assets/img/baseline_add_white_18dp.png"/>
         </div>
         <div class="row" style="justify-content:center;">
-          <img style="margin:5px;" width="20xp" height="20xp" src="/assets/img/baseline_skip_previous_white_18dp.png"/>
-          <img id="play_btn" width="36px" height="36px" src="/assets/img/baseline_play_circle_filled_white_36dp.png"/>
-          <img style="margin:5px;" width="20xp" height="20xp" src="/assets/img/baseline_skip_next_white_18dp.png"/>
+          <img style="margin:5px;" width="20xp" height="20xp" src="assets/img/baseline_skip_previous_white_18dp.png"/>
+          <img id="play_btn" width="36px" height="36px" src="assets/img/baseline_play_circle_filled_white_36dp.png"/>
+          <img style="margin:5px;" width="20xp" height="20xp" src="assets/img/baseline_skip_next_white_18dp.png"/>
         </div>
         <div class="row" style="justify-content:center;">
-          <img style="margin:5px;" width="20xp" height="20xp" src="/assets/img/baseline_remove_white_18dp.png"/>
+          <img style="margin:5px;" width="20xp" height="20xp" src="assets/img/baseline_remove_white_18dp.png"/>
         </div>
       </div>
 
@@ -485,8 +484,8 @@
     </div>
 
     <div id="menu_software_key" class="kui-software-key software-key" style="background-color:rgba(0, 0, 0, 0.5);color: #fff!important;">
-      <div style="width:50%;text-align:left;padding-left:5px;">Track</div>
-      <div style="width:50%;text-align:right;padding-right:5px;">Menu</div>
+      <div style="width:50%;text-align:left;padding-left:5px;">Menu</div>
+      <div style="width:50%;text-align:right;padding-right:5px;">Artist</div>
     </div>
 
     <div id="offmenu_software_key" class="kui-software-key software-key sr-only">
@@ -515,7 +514,7 @@
     <div id="search_software_key" class="kui-software-key software-key sr-only">
       <div style="width:30%;text-align:left;padding-left:5px;">Search</div>
       <div style="width:40%;text-align:center;">PLAY</div>
-      <div style="width:30%;text-align:right;padding-right:5px;">Clear</div>
+      <div style="width:30%;text-align:right;padding-right:5px;">Next</div>
     </div>
 
     <div id="equalizer_software_key" class="kui-software-key software-key sr-only">
