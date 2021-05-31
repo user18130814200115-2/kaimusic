@@ -471,17 +471,17 @@ window.addEventListener("load", function() {
           const byteArray = new Uint8Array(data);
           const blob = new Blob([byteArray], { type });
           ALBUM_COVER.src = URL.createObjectURL(blob);
-          document.body.style.background = `url(${ALBUM_COVER.src})`
+          //document.body.style.background = `url(${ALBUM_COVER.src})`
         } else if (media.tags.picture.blob) {
           ALBUM_COVER.src = URL.createObjectURL(media.tags.picture.blob);
-          document.body.style.background = `url(${ALBUM_COVER.src})`
+          //document.body.style.background = `url(${ALBUM_COVER.src})`
         } else {
           ALBUM_COVER.src = '/assets/img/baseline_album_white_48.png';
-          document.body.style.background = ``
+          //document.body.style.background = ``
         }
       } else {
         ALBUM_COVER.src = '/assets/img/baseline_album_white_48.png';
-        document.body.style.background = ``
+        //document.body.style.background = ``
       }
     }
   }
@@ -2598,7 +2598,7 @@ window.addEventListener("load", function() {
         break
       case 'SoftLeft':
         if (CURRENT_SCREEN === 'HOME' && CURRENT_SCREEN !== 'PLAYLIST_MODAL') {
-          PLAYLIST_MODAL.show();
+          MENU_MODAL.show();
         } else if (CURRENT_SCREEN !== 'HOME' && CURRENT_SCREEN === 'PLAYLIST_MANAGER_MODAL') {
           if (document.activeElement.tagName === 'LI') {
             if (PLAYLIST_MANAGER_MODAL_INDEX > 1) {
@@ -2641,7 +2641,8 @@ window.addEventListener("load", function() {
         break
       case 'SoftRight':
         if (CURRENT_SCREEN === 'HOME' && CURRENT_SCREEN !== 'MENU_MODAL') {
-          MENU_MODAL.show();
+	    ARTISTS_MODAL.show();
+	    SEARCH_ARTIST.focus();
         } else if (CURRENT_SCREEN !== 'HOME' && CURRENT_SCREEN === 'PLAYLIST_MANAGER_MODAL') {
           if (document.activeElement.tagName === 'LI') {
             if (PLAYLIST_MANAGER_MODAL_INDEX > 1) {
@@ -2691,21 +2692,21 @@ window.addEventListener("load", function() {
           }
           mp3Trimmer(CUTTER_BLOB, CUTTER_START_DURATION, CUTTER_END_DURATION, saveRingtone);
         } else if (CURRENT_SCREEN === 'PLAYLIST_MODAL') {
-          SEARCH_TRACK.value = '';
-          searchPlaylist('');
-          SEARCH_TRACK.blur();
+            PLAYLIST_MODAL.hide();
+	    ARTISTS_MODAL.show();
+	    SEARCH_ARTIST.focus();
         } else if (CURRENT_SCREEN === 'FOLDERS_MODAL') {
           SEARCH_FOLDER.value = '';
           searchFolder('');
           SEARCH_FOLDER.blur();
         } else if (CURRENT_SCREEN === 'ARTISTS_MODAL') {
-          SEARCH_ARTIST.value = '';
-          searchGeneric('' , "ARTISTS", ARTISTS_UL, "nav_artist");
-          SEARCH_ARTIST.blur();
+            ARTISTS_MODAL.hide();
+	    ALBUMS_MODAL.show();
+	    SEARCH_ALBUM.focus();
         } else if (CURRENT_SCREEN === 'ALBUMS_MODAL') {
-          SEARCH_ALBUM.value = '';
-          searchGeneric('' , "ALBUMS", ALBUMS_UL, "nav_album");
-          SEARCH_ALBUM.blur();
+            ALBUMS_MODAL.hide();
+	    PLAYLIST_MODAL.show();
+	    SEARCH_TRACK.focus();
         } else if (CURRENT_SCREEN === 'GENRES_MODAL') {
           SEARCH_GENRE.value = '';
           searchGeneric('' , "GENRES", GENRES_UL, "nav_genre");
@@ -2835,9 +2836,11 @@ window.addEventListener("load", function() {
           } else if (document.activeElement.tabIndex === 1) {
             MENU_MODAL.hide();
             ARTISTS_MODAL.show();
+	    SEARCH_ARTIST.focus();
           } else if (document.activeElement.tabIndex === 2) {
             MENU_MODAL.hide();
             ALBUMS_MODAL.show();
+	    SEARCH_ALBUM.focus();
           } else if (document.activeElement.tabIndex === 3) {
             MENU_MODAL.hide();
             GENRES_MODAL.show();
@@ -3173,42 +3176,6 @@ window.addEventListener("load", function() {
     } else {
       const sample = { 'preamp': 0, 'hz60': 0, 'hz170': 0, 'hz310': 0, 'hz600': 0, 'hz1000': 0, 'hz3000': 0, 'hz6000': 0, 'hz12000': 0, 'hz14000': 0, 'hz16000': 0 };
       localforage.setItem('__EQUALIZER__', sample);
-    }
-  });
-
-  function displayKaiAds() {
-    var display = true;
-    if (window['kaiadstimer'] == null) {
-      window['kaiadstimer'] = new Date();
-    } else {
-      var now = new Date();
-      if ((now - window['kaiadstimer']) < 300000) {
-        display = false;
-      } else {
-        window['kaiadstimer'] = now;
-      }
-    }
-    if (!display)
-      return;
-    getKaiAd({
-      publisher: 'ac3140f7-08d6-46d9-aa6f-d861720fba66',
-      app: 'k-music',
-      slot: 'kaios',
-      onerror: err => console.error(err),
-      onready: ad => {
-        ad.call('display')
-        setTimeout(() => {
-          document.body.style.position = '';
-        }, 1000);
-      }
-    })
-  }
-
-  displayKaiAds();
-
-  document.addEventListener('visibilitychange', function(ev) {
-    if (document.visibilityState === 'visible') {
-      displayKaiAds();
     }
   });
 
