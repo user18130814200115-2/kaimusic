@@ -535,6 +535,7 @@ window.addEventListener("load", function() {
     document.activeElement.tabIndex = -1;
     MENU_SK.classList.remove('sr-only');
     SEARCH_SK.classList.add('sr-only');
+	SEARCH_TRACK.focus();
   });
 
   MENU_MODAL = new Modalise('menu_modal')
@@ -768,6 +769,7 @@ window.addEventListener("load", function() {
         nav(1, '.nav_album');
       }, 200);
       SEARCH_SK.classList.remove('sr-only');
+	SEARCH_ALBUM.focus();
     })
     
   })
@@ -814,6 +816,7 @@ window.addEventListener("load", function() {
       nav(1, '.nav_artist');
       }, 200);
       SEARCH_SK.classList.remove('sr-only');
+	SEARCH_ARTIST.focus();
     })
   })
   .on('onConfirm', function() {SS
